@@ -1,0 +1,11 @@
+    <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius" wx:for-items="{{titles}}" wx:for-item="item" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" >
+    <view class="cu-item arrow">
+      <view class="content">
+     <navigator class="content" url="/pages/statistics1/statistics1" hover-class="none">
+      <view class="txt"></view>
+        <image src="/images/zuoyeok.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">作业标题：{{item.title}}\n\n 截止时间：{{item.Utime}}</text>
+     </navigator>
+      </view>
+    </view>
+  </view>

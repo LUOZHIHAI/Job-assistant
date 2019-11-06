@@ -1,0 +1,42 @@
+<form>
+	<view class="cu-form-group margin-top">
+		<view class="title">课程名称:</view>
+		<text class="fd"> {{currName}}</text>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">所属班级:</view>
+		<text>{{class}}</text>
+	</view>
+  	<view class="cu-form-group">
+		<view class="title">发布者:</view>
+		<text>{{publisher}}</text>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">作业标题:</view>
+		<text>{{title}}</text>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">作业内容:</view>
+	</view>
+
+  <view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class="cu-form-group">
+			<text>{{content}}</text>
+	</view>
+  </view>
+  <view class="cu-form-group">
+		<view class="title"> 发布时间:</view>
+		<text>{{Rtime}}</text>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">截止时间:</view>
+		<text>{{Utime}}</text>
+	  </view>
+    <view class="cu-form-group">
+    <text class="cuIcon-tagfill text-green">标签</text>
+    <view class="action">
+        <view class="cu-tag round bg-orange light">150天后</view>
+        <view class="cu-tag round bg-olive light">星期一</view>
+    </view>
+	</view>  
+</form>

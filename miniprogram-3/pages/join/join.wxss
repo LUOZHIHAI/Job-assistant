@@ -1,0 +1,12 @@
+page{
+  background-color:#FFFFFF
+}
+
+.ff{
+    margin-top:200rpx;
+}
+.cc button{
+  margin-top:250rpx;
+    background: #1AAD16;
+    color: #fff;
+}

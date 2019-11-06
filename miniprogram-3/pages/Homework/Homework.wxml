@@ -1,0 +1,33 @@
+<form>
+	<view class="cu-form-group margin-top">
+		<view class="title">所属课程:</view>
+		<input placeholder="请输入课程名" value="{{courseName}}" bindblur='courseNameInput'></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">作业标题:</view>
+		<input placeholder="请输入作业标题" value="{{titleName}}" bindblur='titleNameInput'></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">作业内容:</view>
+		<textarea placeholder="请输入内容" value="{{contentName}}" bindblur='contentNameInput'></textarea>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">   备   注   :</view>
+		<input placeholder="请输入内容" value="{{remarkName}}" bindblur='remarkNameInput'></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">截至日期:</view>
+		<picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
+			<view class="picker">
+				{{date}}
+			</view>
+		</picker>
+	</view>
+</form>
+
+<view class="aa">
+<view style="display:flex;margin-top:30px;">
+  <button type="default" class="submit-btn" style="width:30%;" formType="submit" bindtap="orderMeeting" >发布</button>
+</view>
+</view>
+

@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/test/test",
+    "pages/statistics/statistics",
+    "pages/gonggao/gonggao",
+    "pages/statistics1/statistics1",
+    "pages/Homework/Homework",
+    "pages/index/index",
+    "pages/about/about",
+    "pages/xuanzheTJ/xuanzheTJ",
+    "pages/announcement/announcement",
+    "pages/homepage/homepage",
+    "pages/create class/create class",
+    "pages/detail/detail",
+    "pages/achome/achome",
+    "pages/error/error",
+    "pages/title/title",
+    "pages/success/success",
+    "pages/join/join",
+    "pages/logs/logs"
+  ],
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#1AAD16",
+    "backgroundClor": "#ccc",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/homepage/homepage",
+        "text": "首页",
+        "iconPath": "images/tabbar/tabBar1_f.png",
+        "selectedIconPath": "images/tabBar/tabBar1_t.png"
+      },
+      {
+        "pagePath": "pages/test/test",
+        "text": "我的",
+        "iconPath": "images/tabbar/wode_f.png",
+        "selectedIconPath": "images/tabBar/wode_t.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

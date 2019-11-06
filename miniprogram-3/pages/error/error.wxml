@@ -1,0 +1,10 @@
+<!--pages/error/error.wxml-->
+<view class="container">
+  <icon type="warn" color="#ff4c41" size="100"></icon>
+  <view class="tips">操作失败</view>
+  <view class = "vv">
+  <navigator class="ta" url="../test/test" open-type="switchTab">
+  <button type="warn" class="finish-btn">返回</button>
+  </navigator>
+  </view>
+</view>

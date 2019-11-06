@@ -1,0 +1,20 @@
+<view class="ff">
+<form>
+	<view class="cu-form-group margin-top">
+		<view class="title">名称</view>
+		<input placeholder="请输入班级名称" value="{{className}}" bindblur='classNameInput'></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">密钥</view>
+		<input placeholder="请输入班级密钥" value="{{keyName}}" bindblur='keyNameInput'></input>
+	</view>
+</form>
+</view>
+
+
+
+<view class="cc">
+<view style="display:flex;margin-top:30px;">
+  <button class="formbtn" style="width:40%;" formType="submit;" bindtap="orderMeeting">加入班级</button>
+</view>
+</view>

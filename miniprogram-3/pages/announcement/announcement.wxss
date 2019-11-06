@@ -1,0 +1,19 @@
+page{
+  background-color:#FFFFFF
+}
+.aa button{
+    background: #1AAD16;
+    margin-top:200rpx;
+    color: #fff;
+}
+
+.biankuang{
+
+  border-width:6rpx;
+  border-style:dashed;
+  border-color:#1AAD16;
+}
+
+.zhanwei{
+  font-size: 35rpx;
+}

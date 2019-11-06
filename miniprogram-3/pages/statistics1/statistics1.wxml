@@ -1,0 +1,37 @@
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class='margin-bottom text-lg  text-grey'>作业标题：{{title}}</view>
+  <view class='margin-bottom text-lg  text-grey'>截止时间：{{Utime}}</view>
+  <view class='text-center margin-bottom text-lg  text-grey'>& 进行中</view>
+  <view class="divLine"></view>
+  <view class='text-content'>
+  <view>已交：{{submitted}}</view>
+  <view>未交：{{noSubmitted}}</view>
+
+  <view class="divLine"></view>
+   <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+
+  <view class="cu-capsule">
+    <view class="cu-tag bg-red">
+      名单
+    </view>
+    <view class="cu-tag line-red">
+      {{number}}
+    </view>
+  </view>
+</view>
+    
+  </view>
+
+      <view class="mingdan" wx:for="{{people}}">
+        <view wx:if="{{person.come}}">
+           {{item}}
+           <icon class = "txt" type="success" size="18"/>
+           <view class="xian"></view>
+        </view>
+      </view>
+
+
+
+  </view>
+</view>

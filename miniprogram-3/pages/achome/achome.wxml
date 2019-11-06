@@ -1,0 +1,13 @@
+<!--pages/achome/achome.wxml-->
+
+
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius" wx:for="{{class}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" >
+    <view class="cu-item arrow">
+     <navigator class="content" url="/pages/Homework/Homework" id="{{index}}"   bind:tap='onArticleClick'  hover-class="none">
+      <view class="content" bindtap="CopyLink" data-link="https://github.com/weilanwl/ColorUI">
+        <image src="../../images/banji.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">{{item}}</text>
+      </view>
+      </navigator>
+    </view>
+  </view>

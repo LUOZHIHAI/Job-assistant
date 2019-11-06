@@ -1,0 +1,11 @@
+
+.message-group{
+  height: 60px;
+  line-height: 60px;
+  padding: 10px;
+  border-bottom: 1px solid #e4e4e4;
+  }
+
+  .message-group.content{
+    float: left
+  }

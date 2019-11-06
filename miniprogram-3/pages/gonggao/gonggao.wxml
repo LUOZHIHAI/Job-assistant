@@ -1,0 +1,84 @@
+
+
+
+
+
+<!--pages/swiperTab/swiperTab.wxml-->
+
+<view>  
+
+  <!--顶部导航栏-->  
+
+  <view class="swiper-tab">  
+
+    <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">班级作业</view>  
+
+    <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">班级公告</view>  
+
+  </view>  
+
+  <!--内容主体-->  
+
+  <swiper class="swiper" current="{{currentTab}}" duration="200" bindchange="swiperChange">  
+
+    <swiper-item>  
+
+      <view>
+      
+      
+      
+      <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius" wx:for-items="{{titles}}" wx:for-item="item" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" >
+    <view class="cu-item arrow">
+      <view class="content">
+     <navigator class="content" url="/pages/detail/detail" hover-class="none">
+      <view class="txt"></view>
+        <image src="/images/zuoyeok.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">作业标题：{{item.title}}\n\n 截止时间：{{item.Utime}}</text>
+     </navigator>
+      </view>
+    </view>
+  </view>
+      
+      
+      
+      
+      
+      </view>  
+
+    </swiper-item>  
+
+    <swiper-item>  
+
+      <view>
+      
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius" >
+    <view class="cu-item arrow">
+      <view class="content">
+        <text class="flex.twt">当前公告</text>
+        <view class="divLine"></view>
+        <textarea class="nr" disabled="false" >{{message}}</textarea>
+        <view class="divLine"></view>
+        <view class="nr">发布时间：{{Rtime}}</view>
+      </view>
+    </view>
+</view>
+  <view class="aa">
+ <navigator class="content" url="/pages/about/about" hover-class="none">
+<view style="display:flex;margin-top:30px;">
+  <button type="default" class="submit-btn" style="width:30%;" formType="submit" bindtap="orderMeeting" 
+  >编辑公告</button>
+  </view>
+  </navigator>
+</view>
+      
+      
+</view>  
+
+    </swiper-item>  
+
+  </swiper>  
+
+</view>  
+
+
+
