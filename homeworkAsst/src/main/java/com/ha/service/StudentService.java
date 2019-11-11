@@ -15,6 +15,6 @@ public interface StudentService {
 	
 	public Student getStuByMid(int Mid);
 	
-	
+	public void setStuName(int mid, String name);
 
 }

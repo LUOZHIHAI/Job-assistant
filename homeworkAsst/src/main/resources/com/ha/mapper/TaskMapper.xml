@@ -3,7 +3,7 @@
 <mapper namespace="com.ha.mapper.TaskMapper" >
   <resultMap id="BaseResultMap" type="com.ha.pojos.Task" >
     <id column="tid" property="tid" jdbcType="INTEGER" />
-    <id column="cid" property="cid" jdbcType="INTEGER" />
+    <result column="cid" property="cid" jdbcType="INTEGER" />
     <result column="subject" property="subject" jdbcType="VARCHAR" />
     <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="remarks" property="remarks" jdbcType="VARCHAR" />
@@ -84,17 +84,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.ha.pojos.TaskKey" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from task
     where tid = #{tid,jdbcType=INTEGER}
-      and cid = #{cid,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.ha.pojos.TaskKey" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from task
     where tid = #{tid,jdbcType=INTEGER}
-      and cid = #{cid,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.ha.pojos.TaskExample" >
     delete from task
@@ -203,6 +201,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.ha.pojos.Task" >
     update task
     <set >
+      <if test="cid != null" >
+        cid = #{cid,jdbcType=INTEGER},
+      </if>
       <if test="subject != null" >
         subject = #{subject,jdbcType=VARCHAR},
       </if>
@@ -217,15 +218,14 @@
       </if>
     </set>
     where tid = #{tid,jdbcType=INTEGER}
-      and cid = #{cid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.ha.pojos.Task" >
     update task
-    set subject = #{subject,jdbcType=VARCHAR},
+    set cid = #{cid,jdbcType=INTEGER},
+      subject = #{subject,jdbcType=VARCHAR},
       content = #{content,jdbcType=VARCHAR},
       remarks = #{remarks,jdbcType=VARCHAR},
       time = #{time,jdbcType=VARCHAR}
     where tid = #{tid,jdbcType=INTEGER}
-      and cid = #{cid,jdbcType=INTEGER}
   </update>
 </mapper>

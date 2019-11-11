@@ -573,6 +573,66 @@ public class MyclassExample {
             addCriterion("secret_key not between", value1, value2, "secretKey");
             return (Criteria) this;
         }
+
+        public Criteria andMasterIsNull() {
+            addCriterion("master is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterIsNotNull() {
+            addCriterion("master is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterEqualTo(Integer value) {
+            addCriterion("master =", value, "master");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterNotEqualTo(Integer value) {
+            addCriterion("master <>", value, "master");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterGreaterThan(Integer value) {
+            addCriterion("master >", value, "master");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterGreaterThanOrEqualTo(Integer value) {
+            addCriterion("master >=", value, "master");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterLessThan(Integer value) {
+            addCriterion("master <", value, "master");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterLessThanOrEqualTo(Integer value) {
+            addCriterion("master <=", value, "master");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterIn(List<Integer> values) {
+            addCriterion("master in", values, "master");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterNotIn(List<Integer> values) {
+            addCriterion("master not in", values, "master");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterBetween(Integer value1, Integer value2) {
+            addCriterion("master between", value1, value2, "master");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterNotBetween(Integer value1, Integer value2) {
+            addCriterion("master not between", value1, value2, "master");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

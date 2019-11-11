@@ -15,5 +15,5 @@ public interface TaskService {
 	
 	public List<Stuntask> findStuByTid(int tid);
 	
-	
+	public Task getTaskByTid(int tid);
 }

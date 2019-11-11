@@ -63,4 +63,12 @@ public class StudentServiceImpl implements StudentService {
 		
 	}
 
+
+	@Override
+	public void setStuName(int mid, String name) {
+		Student stu = studentMapper.selectByPrimaryKey(mid);
+		stu.setName(name);
+		studentMapper.updateByPrimaryKey(stu);
+	}
+
 }

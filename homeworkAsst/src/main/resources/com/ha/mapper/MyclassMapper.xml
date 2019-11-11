@@ -9,6 +9,7 @@
     <result column="major" property="major" jdbcType="VARCHAR" />
     <result column="class_num" property="classNum" jdbcType="INTEGER" />
     <result column="secret_key" property="secretKey" jdbcType="VARCHAR" />
+    <result column="master" property="master" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -69,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    cid, school, college, grade, major, class_num, secret_key
+    cid, school, college, grade, major, class_num, secret_key, master
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ha.pojos.MyclassExample" >
     select
@@ -104,10 +105,13 @@
   <insert id="insert" parameterType="com.ha.pojos.Myclass" >
     insert into myclass (cid, school, college, 
       grade, major, class_num, 
-      secret_key)
+      secret_key, master)
     values (#{cid,jdbcType=INTEGER}, #{school,jdbcType=VARCHAR}, #{college,jdbcType=VARCHAR}, 
       #{grade,jdbcType=VARCHAR}, #{major,jdbcType=VARCHAR}, #{classNum,jdbcType=INTEGER}, 
-      #{secretKey,jdbcType=VARCHAR})
+      #{secretKey,jdbcType=VARCHAR}, #{master,jdbcType=INTEGER})
+    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="cid">
+		SELECT LAST_INSERT_ID() AS id
+    </selectKey>
   </insert>
   <insert id="insertSelective" parameterType="com.ha.pojos.Myclass" >
     insert into myclass
@@ -133,6 +137,9 @@
       <if test="secretKey != null" >
         secret_key,
       </if>
+      <if test="master != null" >
+        master,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="cid != null" >
@@ -155,6 +162,9 @@
       </if>
       <if test="secretKey != null" >
         #{secretKey,jdbcType=VARCHAR},
+      </if>
+      <if test="master != null" >
+        #{master,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -188,6 +198,9 @@
       <if test="record.secretKey != null" >
         secret_key = #{record.secretKey,jdbcType=VARCHAR},
       </if>
+      <if test="record.master != null" >
+        master = #{record.master,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -201,7 +214,8 @@
       grade = #{record.grade,jdbcType=VARCHAR},
       major = #{record.major,jdbcType=VARCHAR},
       class_num = #{record.classNum,jdbcType=INTEGER},
-      secret_key = #{record.secretKey,jdbcType=VARCHAR}
+      secret_key = #{record.secretKey,jdbcType=VARCHAR},
+      master = #{record.master,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -227,6 +241,9 @@
       <if test="secretKey != null" >
         secret_key = #{secretKey,jdbcType=VARCHAR},
       </if>
+      <if test="master != null" >
+        master = #{master,jdbcType=INTEGER},
+      </if>
     </set>
     where cid = #{cid,jdbcType=INTEGER}
   </update>
@@ -237,7 +254,11 @@
       grade = #{grade,jdbcType=VARCHAR},
       major = #{major,jdbcType=VARCHAR},
       class_num = #{classNum,jdbcType=INTEGER},
-      secret_key = #{secretKey,jdbcType=VARCHAR}
+      secret_key = #{secretKey,jdbcType=VARCHAR},
+      master = #{master,jdbcType=INTEGER}
     where cid = #{cid,jdbcType=INTEGER}
   </update>
+  <select id="slef_selectByMaster" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  	select from myclass where master = #{mid,jdbcType=INTEGER}
+  </select>
 </mapper>

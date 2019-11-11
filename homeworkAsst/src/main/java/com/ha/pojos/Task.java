@@ -2,7 +2,11 @@ package com.ha.pojos;
 
 import java.util.Map;
 
-public class Task extends TaskKey {
+public class Task {
+    private Integer tid;
+
+    private Integer cid;
+
     private String subject;
 
     private String content;
@@ -11,17 +15,33 @@ public class Task extends TaskKey {
 
     private String time;
     
-    private Map state;
+    private Map statistics;
 
-    public Map getState() {
-		return state;
+    public Map getStatistics() {
+		return statistics;
 	}
 
-	public void setState(Map state) {
-		this.state = state;
+	public void setStatistics(Map statistics) {
+		this.statistics = statistics;
 	}
 
-	public String getSubject() {
+	public Integer getTid() {
+        return tid;
+    }
+
+    public void setTid(Integer tid) {
+        this.tid = tid;
+    }
+
+    public Integer getCid() {
+        return cid;
+    }
+
+    public void setCid(Integer cid) {
+        this.cid = cid;
+    }
+
+    public String getSubject() {
         return subject;
     }
 

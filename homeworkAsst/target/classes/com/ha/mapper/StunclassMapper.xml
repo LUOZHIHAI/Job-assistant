@@ -142,4 +142,9 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
+  <select id="self_selectJoinedClass" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  	select * from stunclass where mid=#{mid,jdbcType=INTEGER} AND
+	cid not in(SELECT cid FROM myclass
+	where master=#{mid,jdbcType=INTEGER})
+  </select>
 </mapper>

@@ -2,7 +2,6 @@ package com.ha.mapper;
 
 import com.ha.pojos.Task;
 import com.ha.pojos.TaskExample;
-import com.ha.pojos.TaskKey;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -11,7 +10,7 @@ public interface TaskMapper {
 
     int deleteByExample(TaskExample example);
 
-    int deleteByPrimaryKey(TaskKey key);
+    int deleteByPrimaryKey(Integer tid);
 
     int insert(Task record);
 
@@ -19,7 +18,7 @@ public interface TaskMapper {
 
     List<Task> selectByExample(TaskExample example);
 
-    Task selectByPrimaryKey(TaskKey key);
+    Task selectByPrimaryKey(Integer tid);
 
     int updateByExampleSelective(@Param("record") Task record, @Param("example") TaskExample example);
 

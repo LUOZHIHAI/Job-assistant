@@ -15,6 +15,8 @@ public class Myclass {
 
     private String secretKey;
 
+    private Integer master;
+
     public Integer getCid() {
         return cid;
     }
@@ -69,5 +71,13 @@ public class Myclass {
 
     public void setSecretKey(String secretKey) {
         this.secretKey = secretKey == null ? null : secretKey.trim();
+    }
+
+    public Integer getMaster() {
+        return master;
+    }
+
+    public void setMaster(Integer master) {
+        this.master = master;
     }
 }

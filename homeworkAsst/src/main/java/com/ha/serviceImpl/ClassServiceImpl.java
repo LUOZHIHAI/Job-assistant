@@ -10,6 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ha.mapper.MyclassMapper;
 import com.ha.mapper.NoticeMapper;
 import com.ha.mapper.StunclassMapper;
+import com.ha.mapper.StuntaskMapper;
+import com.ha.mapper.TaskMapper;
 import com.ha.pojos.Myclass;
 import com.ha.pojos.MyclassExample;
 import com.ha.pojos.Notice;
@@ -17,6 +19,8 @@ import com.ha.pojos.NoticeExample;
 import com.ha.pojos.StudentExample;
 import com.ha.pojos.StunclassExample;
 import com.ha.pojos.StunclassKey;
+import com.ha.pojos.StuntaskExample;
+import com.ha.pojos.TaskExample;
 import com.ha.service.ClassService;
 
 @Service
@@ -30,7 +34,13 @@ public class ClassServiceImpl implements ClassService {
 	private StunclassMapper stunclassMapper;
 	
 	@Autowired
+	private StuntaskMapper stuntaskMapper;
+	
+	@Autowired
 	private NoticeMapper noticeMapper;
+	
+	@Autowired
+	private TaskMapper taskMapper;
 	
 	@Override
 	public void addClass(Myclass myclass) {
@@ -55,7 +65,7 @@ public class ClassServiceImpl implements ClassService {
 		return myclass;
 	}
 
-	@Override
+/*	@Override
 	public Myclass findClassByName(String college, String grade, String major, String school, int classNum) {
 		MyclassExample example = new MyclassExample();
 		MyclassExample.Criteria criteria = example.createCriteria();
@@ -68,9 +78,10 @@ public class ClassServiceImpl implements ClassService {
 		if(!list.isEmpty())
 			return list.get(0);
 		return null;
-	}
+	}*/
 
-	@Override
+	/*	暂时废弃
+	@Override			
 	public Myclass findClassByLongName(String name) {
 		MyclassExample example = new MyclassExample();
 		List<Myclass> list = myclassMapper.selectByExample(example);
@@ -83,7 +94,7 @@ public class ClassServiceImpl implements ClassService {
 				}
 			}
 		return null;
-	}
+	}*/
 
 	@Override
 	public void joinClass(int mid,int cid) {
@@ -101,6 +112,56 @@ public class ClassServiceImpl implements ClassService {
 		criteria.andCidEqualTo(cid);
 		List<Notice> list = noticeMapper.selectByExample(example);
 		return list;
+	}
+
+	@Override
+	public boolean isMaster(int cid, int mid) {
+		Myclass myclass = myclassMapper.selectByPrimaryKey(cid);
+		if(myclass.getMaster() == mid)
+			return true;
+		return false;
+	}
+
+	@Override
+	public void updateClassNotice(Notice notice) {
+		noticeMapper.updateByPrimaryKey(notice);
+	}
+
+	@Override
+	public List<Myclass> findMyClass(int mid) {
+		List<Myclass> list = myclassMapper.slef_selectByMaster(mid);
+		return list;
+	}
+
+	@Override
+	public List<StunclassKey> findJoinedClass(int mid) {
+		List<StunclassKey> list = stunclassMapper.self_selectJoinedClass(mid);
+		return list;
+	}
+
+	@Override
+	public void delClass(int cid) {
+		//删除学生与班级关联
+		StunclassExample stunclassExample = new StunclassExample();
+		StunclassExample.Criteria criteria1 = stunclassExample.createCriteria();
+		criteria1.andCidEqualTo(cid);
+		stunclassMapper.deleteByExample(stunclassExample);
+		//删除班级公告
+		NoticeExample noticeExample = new NoticeExample();
+		NoticeExample.Criteria criteria4 = noticeExample.createCriteria();
+		criteria4.andCidEqualTo(cid);
+		noticeMapper.deleteByExample(noticeExample);
+		//删除班级
+		myclassMapper.deleteByPrimaryKey(cid);
+	}
+
+	@Override
+	public void exitClass(int mid, int cid) {
+		//删除学生班级关联
+		StunclassKey key = new StunclassKey();
+		key.setCid(cid);
+		key.setMid(mid);
+		stunclassMapper.deleteByPrimaryKey(key);
 	}
 
 }

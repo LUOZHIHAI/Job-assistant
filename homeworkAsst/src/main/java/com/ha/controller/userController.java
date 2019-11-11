@@ -27,7 +27,11 @@ public class userController {
 			student.setUsername(name);
 			studentService.SaveStu(student);
 			return student;
-		}
-			
+		}	
+	}
+	
+	@RequestMapping("/setRealName")
+	public void realName(int mid, String name) {
+		studentService.setStuName(mid, name);
 	}
 }

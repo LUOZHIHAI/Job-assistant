@@ -47,14 +47,15 @@ public class TaskController {
 	
 	@RequestMapping("/getStatistics")
 	@ResponseBody
-	public Map getStatistics(int tid) {  //统计分析  task添加属性，返回task对象
+	public Task getStatistics(int tid) {    //统计分析 
 		List<Stuntask> list = taskService.findStuByTid(tid);
-//		Task task = taskService
+		Task task = taskService.getTaskByTid(tid);
 		Map map = new HashMap();
 		for(Stuntask st : list) {
 			Student stu = studentService.getStuByMid(st.getMid());
-			map.put(stu.getUsername(), st.getState());
+			map.put(stu.getName(), st.getState());
 		}
-		return map;
+		task.setStatistics(map);
+		return task;
 	}
 }

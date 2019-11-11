@@ -12,14 +12,26 @@ public interface ClassService {
 	
 	public List<StunclassKey> findClassByMid(int mid);
 	
+	public List<Myclass> findMyClass(int mid);
+	
 	public Myclass findClassByCid(int cid);
 	
-	public Myclass findClassByName(String college,String grade,String major,
-			String school,int classNum);
+/*	public Myclass findClassByName(String college,String grade,String major,
+			String school,int classNum);				暂时废弃*/
 	
-	public Myclass findClassByLongName(String name);
+//	public Myclass findClassByLongName(String name);   暂时废弃
 	
 	public void joinClass(int mid,int cid);
 	
 	public List<Notice> findNotice(int cid);
+	
+	public boolean isMaster(int cid, int mid);
+	
+	public void updateClassNotice(Notice notice);
+	
+	public List<StunclassKey> findJoinedClass(int mid);
+	
+	public void delClass(int cid);
+	
+	public void exitClass(int mid, int cid);
 }

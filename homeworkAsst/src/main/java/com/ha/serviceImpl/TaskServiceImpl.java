@@ -44,7 +44,7 @@ public class TaskServiceImpl implements TaskService{
 	@Override
 	public void combStu(int tid, List<Integer> mid) {
 		Stuntask stuntask = new Stuntask();
-		byte state =0;
+		byte state = 0;
 		for(int i = 0; i<mid.size(); i++) {
 			stuntask.setTid(tid);
 			stuntask.setMid(mid.get(i));
@@ -61,6 +61,12 @@ public class TaskServiceImpl implements TaskService{
 		criteria.andTidEqualTo(tid);
 		List<Stuntask> list = stuntaskMapper.selectByExample(example);
 		return list;
+	}
+
+	@Override
+	public Task getTaskByTid(int tid) {
+		Task task = taskMapper.selectByPrimaryKey(tid);
+		return task;
 	}
 
 	

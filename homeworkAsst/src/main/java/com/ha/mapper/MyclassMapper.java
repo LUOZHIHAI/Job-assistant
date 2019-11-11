@@ -27,4 +27,6 @@ public interface MyclassMapper {
     int updateByPrimaryKeySelective(Myclass record);
 
     int updateByPrimaryKey(Myclass record);
+    
+    List<Myclass> slef_selectByMaster(Integer mid);
 }

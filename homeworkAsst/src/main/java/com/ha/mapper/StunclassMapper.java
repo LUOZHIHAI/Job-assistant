@@ -21,4 +21,6 @@ public interface StunclassMapper {
     int updateByExampleSelective(@Param("record") StunclassKey record, @Param("example") StunclassExample example);
 
     int updateByExample(@Param("record") StunclassKey record, @Param("example") StunclassExample example);
+    
+    List<StunclassKey> self_selectJoinedClass(Integer mid);
 }
