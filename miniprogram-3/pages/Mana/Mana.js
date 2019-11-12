@@ -118,6 +118,8 @@ Page({
       checked: e.detail.value
     })
     //console.log(this.data.checked)
+    //console.log(this.data.checked)
+    
   },
 
 
