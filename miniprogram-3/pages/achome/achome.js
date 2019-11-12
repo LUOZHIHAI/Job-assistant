@@ -107,6 +107,7 @@ Page({
   },
 
   onArticleClick : function(event){
+    console.log(event)
     console.log(this.data.cid);
     console.log(event.currentTarget.id);
     wx.setStorageSync('cid', this.data.cid[event.currentTarget.id]);

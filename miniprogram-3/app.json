@@ -1,11 +1,12 @@
 {
   "pages": [
+    "pages/Mana/Mana",
     "pages/test/test",
+    "pages/index/index",
     "pages/statistics/statistics",
     "pages/gonggao/gonggao",
     "pages/statistics1/statistics1",
     "pages/Homework/Homework",
-    "pages/index/index",
     "pages/about/about",
     "pages/xuanzheTJ/xuanzheTJ",
     "pages/announcement/announcement",
@@ -17,7 +18,8 @@
     "pages/title/title",
     "pages/success/success",
     "pages/join/join",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "myDialogComponent/myDialogComponent"
   ],
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"

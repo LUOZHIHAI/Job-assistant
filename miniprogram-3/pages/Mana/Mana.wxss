@@ -1,0 +1,41 @@
+
+.page.show {
+  overflow: hidden;
+}
+
+.switch-sex::after {
+  content: "\e716";
+}
+
+.switch-sex::before {
+  content: "\e7a9";
+}
+
+.switch-music::after {
+  content: "\e66a";
+}
+
+.switch-music::before {
+  content: "\e6db";
+}
+
+.tt{
+      text-align: left;
+      width: 96%;
+      font-size: 30rpx;
+}
+
+.ww{
+  margin-left:350rpx;
+}
+
+
+.cu-form-group {
+	background-color: var(--white);
+	padding: 1rpx 30rpx;
+	display: flex;
+	align-items: center;
+	min-height: 150rpx;
+	justify-content: space-between;
+}
+

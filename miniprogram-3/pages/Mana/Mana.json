@@ -1,0 +1,9 @@
+{
+  
+    "usingComponents": {
+      "my-component-dialog": "../../myDialogComponent/myDialogComponent"
+    },
+
+        "navigationBarTitleText": "班级管理",
+        "navigationBarBackgroundColor": "#1AAD16"
+}

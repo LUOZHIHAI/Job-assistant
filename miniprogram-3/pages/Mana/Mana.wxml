@@ -1,0 +1,46 @@
+  <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> 你创建的班级
+    </view>
+  </view>
+  <view class="cu-list menu-avatar">
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for-items="{{Eclass}}" wx:for-item="item" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+
+        <view class="tt">{{item.title}}</view>
+
+
+        <view class="move" >
+          <view class="bg-blue" bindtap="showCompomentDialog" id="{{item.cid}}">修改</view>
+          <view class="bg-red" bindtap="del1" id="{{item.title}}">删除</view>
+        </view>
+
+        
+
+    </view>
+  </view>
+
+  <my-component-dialog
+bind:determineevent="onMyEvent"
+bind:cancleevent="cancleBtn"
+dialog-hidden="{{isHidden}}"
+title-msg="{{titleMsg}}"
+input-hidden="{{inputHidden}}"
+cancle-btn="{{cancleBtn}}"
+input-place-halder="{{inputPlaceHolder}}"
+/>
+
+
+
+<checkbox-group bindchange="checkboxChange">
+    <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-blue"></text> 你加入的班级
+      <button class="cu-btn bg-green shadow ww" bindtap="del2">退出</button>
+    </view>
+  </view>
+	<view class="cu-form-group" wx:for-items="{{Jclass}}" wx:for-item="item">
+		<view class="title">{{item.title}}</view>
+		<checkbox class="round red" value="{{item.cid}}" checked="{{item.checked}}"></checkbox>
+	</view>
+
+</checkbox-group>
