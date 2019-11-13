@@ -1,0 +1,19 @@
+<!--pages/login/login.wxml-->
+<form>
+	<view class="cu-form-group margin-top">
+		<view class="title">账号</view>
+		<input placeholder="两字短标题"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">密码</view>
+		<input placeholder="三字标题"></input>
+	</view>
+	
+	<view class="cu-form-group">
+		<view class="title">验证码</view>
+		<input placeholder="输入框带个按钮"></input>
+		<button class="cu-btn bg-green shadow">验证码</button>
+	</view>
+
+	
+  </form>
