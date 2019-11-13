@@ -100,6 +100,8 @@ Page({
   },
 
   orderMeeting: function (options) {
+    var cid = this.data.cid
+    console.log(cid)
     var courseName = this.data.courseName;
     console.log(courseName)
     var titleName = this.data.titleName;

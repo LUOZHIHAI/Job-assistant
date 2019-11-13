@@ -30,21 +30,23 @@
       <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius" wx:for-items="{{titles}}" wx:for-item="item" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" >
     <view class="cu-item arrow">
       <view class="content">
-     <navigator class="content" url="/pages/detail/detail" hover-class="none">
+     <navigator  class="content" url="/pages/detail/detail?title={{item.tid}}" hover-class="none">
       <view class="txt"></view>
         <image src="/images/zuoyeok.png" class="png" mode="aspectFit"></image>
         <text class="text-grey">作业标题：{{item.title}}\n\n 截止时间：{{item.Utime}}</text>
+
+           <view class="cu-progress round margin-top">
+    <view class="bg-{{item.color}}" style="width:100%;">{{item.state}}</view>
+  </view>
+        
      </navigator>
       </view>
     </view>
   </view>
       
-      
-      
-      
-      
-      </view>  
+    
 
+      </view>  
     </swiper-item>  
 
     <swiper-item>  

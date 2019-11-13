@@ -15,3 +15,10 @@ page{
 .fd{
   float: left;
 }
+
+.bb button{
+    background: #1AAD16;
+    color: #fff;
+    margin-bottom: 80rpx;
+
+}

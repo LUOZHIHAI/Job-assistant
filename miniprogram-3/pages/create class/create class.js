@@ -9,7 +9,8 @@ Page({
     gradeName:'',
     majorName:'',
     className:'',
-    keyName:''
+    keyName:'',
+    master:''
   },
 
   /**
@@ -121,7 +122,8 @@ Page({
         grade: this.data.gradeName,
         major: this.data.majorName,
         classNum: this.data.className,
-        secretKey: this.data.keyName
+        secretKey: this.data.keyName,
+        master:wx.getStorageSync("studentId")
       },
       method: 'get',//定义传到后台接受的是post方法还是get方法
       header: {
@@ -129,14 +131,14 @@ Page({
       },
       success: function (res) {
         console.log("调用API成功");
-        if (res.data == "ok") {
+        if (res.data == "error") {
           wx.navigateTo({
-            url: '../success/success',
+            url: '../error/error'
           })
         }
         else {
           wx.navigateTo({
-            url: '../error/error',
+            url: '../success/success'
           })
         }
       },

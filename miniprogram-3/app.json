@@ -1,10 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/gonggao/gonggao",
+    "pages/detail/detail",
     "pages/Mana/Mana",
     "pages/test/test",
     "pages/statistics/statistics",
-    "pages/gonggao/gonggao",
     "pages/statistics1/statistics1",
     "pages/Homework/Homework",
     "pages/about/about",
@@ -12,7 +13,6 @@
     "pages/announcement/announcement",
     "pages/homepage/homepage",
     "pages/create class/create class",
-    "pages/detail/detail",
     "pages/achome/achome",
     "pages/error/error",
     "pages/title/title",

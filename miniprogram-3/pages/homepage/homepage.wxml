@@ -1,11 +1,11 @@
 
 
-<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius" wx:for="{{class}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" >
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius"wx:for-items="{{class}}" wx:for-item="item" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" >
     <view class="cu-item arrow">
-     <navigator class="content" url="/pages/gonggao/gonggao" hover-class="none">
+     <navigator class="content" url="/pages/gonggao/gonggao?cid={{item.cid}}" hover-class="none">
 
         <image src="../../images/banji.png" class="png" mode="aspectFit"></image>
-        <text class="text-grey">{{item}}</text>
+        <text class="text-grey">{{item.title}}:{{item.cid}}</text>
 
       </navigator>
     </view>

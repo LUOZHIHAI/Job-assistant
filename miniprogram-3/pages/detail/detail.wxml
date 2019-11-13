@@ -1,7 +1,7 @@
-<form>
+<form bindsubmit="itemClick">
 	<view class="cu-form-group margin-top">
 		<view class="title">课程名称:</view>
-		<text class="fd"> {{currName}}</text>
+		<text class="fd">{{tid}}</text>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">所属班级:</view>
@@ -32,11 +32,39 @@
 		<view class="title">截止时间:</view>
 		<text>{{Utime}}</text>
 	  </view>
-    <view class="cu-form-group">
-    <text class="cuIcon-tagfill text-green">标签</text>
-    <view class="action">
-        <view class="cu-tag round bg-orange light">150天后</view>
-        <view class="cu-tag round bg-olive light">星期一</view>
-    </view>
-	</view>  
+
+
+	<view class="cu-bar bg-white margin-top">
+		<view class="action">
+			文件上传
+		</view>
+		<view class="action">
+			{{imgList.length}}/4
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='../../images/wenjian.png' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+				<text class="cuIcon-add"></text>
+			</view>
+		</view>
+	</view>
+
+
+
+
+<view class="bb">
+
+<view style="display:flex;margin-top:30px;">
+  <button class="formbtn" style="width:40%;" formType="submit;" bindtap="showMassage">作业提交</button>
+</view>
+
+</view>
+
 </form>

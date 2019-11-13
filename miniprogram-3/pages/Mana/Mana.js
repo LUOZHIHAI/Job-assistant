@@ -59,6 +59,7 @@ Page({
         })
   },
   showCompomentDialog: function (e) {
+
     console.log(e.currentTarget.id);
     var that = this;
     that.setData({
@@ -73,8 +74,31 @@ Page({
   },
 
   del1(e) {
-    console.log(e.currentTarget.id)
     var that = this
+    var id
+    for (let i = 0; i < that.data.Eclass.length; i++) {
+      if (that.data.Eclass[i].title == e.currentTarget.id) {
+        id = that.data.Eclass[i].cid
+      }
+    }
+
+    wx.request({
+      url: 'http://localhost:8080/class/deleteClass',
+      //定义传到后台的数据
+      data: {
+        //从全局变量data中获取数据
+        //mid: wx.getStorageSync('studentId')
+       // cid: id
+      },
+      method: 'get',//定义传到后台接受的是post方法还是get方法
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+    })
+
+
+    console.log(e.currentTarget.id)
+
     var arr = []
     var a = 0
     for (let i = 0; i < that.data.Eclass.length; i++) {
@@ -127,7 +151,58 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var thiss = this;
+    wx.request({
+      url: 'http://localhost:8080/class/splitAllClass',
+      //定义传到后台的数据
+      data: {
+        //从全局变量data中获取数据
+        mid: wx.getStorageSync('studentId')
+      },
+      method: 'get',//定义传到后台接受的是post方法还是get方法
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
 
+      success: function (res) {
+        console.log("调用API成功");
+        console.log(res.data);
+
+        var str1 = []
+        var str2 = []
+        for (var i = 0; i < res.data[0].length; i++) {
+          var s1 = {
+            title: res.data[0][i].college + res.data[0][i].major + res.data[0][i].classNum + "班",
+            cid: res.data[0][i].cid,
+          }
+          str1.push(s1)
+          
+        }
+        for(let i = 0;i< res.data[1].length;i++){
+          var s2 = {
+            title: res.data[1][i].college + res.data[1][i].major + res.data[1][i].classNum + "班",
+            cid: res.data[1][i].cid,
+            checked: false,
+          }
+          str2.push(s2)
+        }
+
+        thiss.setData({
+           Eclass: str1,
+           Jclass: str2
+        })
+
+        if (res.data.msg == "ok") {
+
+        }
+        else {
+
+        }
+      },
+      fail: function (res) {
+        console.log("调用API失败");
+      }
+    })
   },
 
   /**
