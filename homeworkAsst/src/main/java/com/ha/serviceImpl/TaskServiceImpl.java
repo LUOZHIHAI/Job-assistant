@@ -13,6 +13,7 @@ import com.ha.pojos.Notice;
 import com.ha.pojos.NoticeExample;
 import com.ha.pojos.Stuntask;
 import com.ha.pojos.StuntaskExample;
+import com.ha.pojos.StuntaskKey;
 import com.ha.pojos.Task;
 import com.ha.pojos.TaskExample;
 import com.ha.service.TaskService;
@@ -67,6 +68,18 @@ public class TaskServiceImpl implements TaskService{
 	public Task getTaskByTid(int tid) {
 		Task task = taskMapper.selectByPrimaryKey(tid);
 		return task;
+	}
+
+	@Override
+	public void setConn(int mid,List<Task> list) {
+		for(Task task : list) {
+			StuntaskKey key= new StuntaskKey();
+			key.setMid(mid);
+			key.setTid(task.getTid());
+			Stuntask snt = stuntaskMapper.selectByPrimaryKey(key);	
+			task.setPerState(snt.getState());
+		}
+		
 	}
 
 	

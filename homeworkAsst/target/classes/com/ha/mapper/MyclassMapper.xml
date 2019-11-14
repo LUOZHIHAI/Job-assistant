@@ -111,7 +111,7 @@
       #{secretKey,jdbcType=VARCHAR}, #{master,jdbcType=INTEGER})
     <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="cid">
 		SELECT LAST_INSERT_ID() AS id
-    </selectKey>
+    </selectKey> 
   </insert>
   <insert id="insertSelective" parameterType="com.ha.pojos.Myclass" >
     insert into myclass
@@ -259,6 +259,8 @@
     where cid = #{cid,jdbcType=INTEGER}
   </update>
   <select id="slef_selectByMaster" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-  	select from myclass where master = #{mid,jdbcType=INTEGER}
+  	select 
+  	<include refid="Base_Column_List" />
+  	from myclass where master = #{mid,jdbcType=INTEGER}
   </select>
 </mapper>

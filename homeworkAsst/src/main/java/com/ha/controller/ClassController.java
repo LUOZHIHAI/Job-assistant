@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ha.pojos.Myclass;
 import com.ha.pojos.Notice;
 import com.ha.pojos.StunclassKey;
+import com.ha.pojos.Task;
 import com.ha.service.ClassService;
+import com.ha.service.TaskService;
 
 @Controller
 @RequestMapping("/class")
@@ -20,13 +22,21 @@ public class ClassController {
 	
 	@Autowired
 	private ClassService classService;
+	
+	@Autowired
+	private TaskService taskService;
 
 	@RequestMapping("/create")
 	@ResponseBody
-	public String createClass(Myclass myclass) {
+	public String createClass(Myclass myclass) {  //创建班级、同时创建班级公告
 		if(myclass.getClassNum()!=null) {
 			classService.addClass(myclass);
 			classService.joinClass(myclass.getMaster(), myclass.getCid());
+			System.out.print(myclass.getCid());
+			Notice notice = new Notice();
+			notice.setCid(myclass.getCid());
+			notice.setTime("1970-01-01");
+			classService.newNotice(notice);
 			return myclass.getCid().toString();
 		}
 		return "error";
@@ -45,10 +55,17 @@ public class ClassController {
 		return "error";
 	}
 	
-	@RequestMapping("/notice")
+	@RequestMapping("/getTaskNotice")
 	@ResponseBody
-	public List<Notice> getClassNotice(int cid) {	//班级公告
-		List<Notice> list = classService.findNotice(cid);
+	public List getTaskAndNotice(int cid,int mid) {	//班级公告、作业
+		List<Notice> noticeList = classService.findNotice(cid);
+		List<Task> taskList = taskService.getTask(cid);
+		taskService.setConn(mid,taskList);
+		List list = new ArrayList();
+		list.add(noticeList);
+		list.add(taskList);
+		System.out.print(list.get(0));
+		System.out.print(list.get(1));
 		return list;
 	}
 	
@@ -65,7 +82,7 @@ public class ClassController {
 	
 	@RequestMapping("/getAllClass")
 	@ResponseBody
-	public List<Myclass> getAllClass(int mid){
+	public List<Myclass> getAllClass(int mid){  //获取相关的所有班级
 		List<Myclass> list = new ArrayList<Myclass>();
 		List<StunclassKey>list1 = classService.findClassByMid(mid);
 		Myclass myclass;
@@ -80,14 +97,14 @@ public class ClassController {
 	
 	@RequestMapping("/getMyClass")
 	@ResponseBody
-	public List<Myclass> getMyClass(int mid) {
+	public List<Myclass> getMyClass(int mid) {  //获取创建的班级
 		List<Myclass> list = classService.findMyClass(mid);
 		return list;
 	}
 	
 	@RequestMapping("/splitAllClass")
 	@ResponseBody
-	public List splitAllClass(int mid) {
+	public List splitAllClass(int mid) {  //分别获取加入的和创建的班级
 		Myclass myclass;
 		List list = new ArrayList();
 		List<Myclass> list1 = classService.findMyClass(mid);
@@ -106,21 +123,20 @@ public class ClassController {
 	
 	@RequestMapping("/updateClassName")
 	@ResponseBody
-	public String updateName(int cid, int mid) {
-		if(classService.isMaster(cid, mid)) {
-			
-		}
-		return "error";
+	public void updateName(int cid, String name) {
+		Myclass myclass = classService.findClassByCid(cid);
+		classService.updateClass(myclass);
+		
 	}
 	
 	@RequestMapping("/deleteClass")
 	@ResponseBody
-	public void deleteClass(int cid) {
-		
+	public void deleteClass(int cid) {  	//学委删除班级
+		classService.delClass(cid);
 	}
 	
 	@RequestMapping("/exitClass")
-	public void exitClass(int mid, int cid) {
+	public void exitClass(int mid, int cid) {		//学生退出班级
 		classService.exitClass(mid, cid);
 	}
 }

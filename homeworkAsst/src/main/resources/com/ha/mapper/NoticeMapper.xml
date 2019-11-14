@@ -5,6 +5,7 @@
     <id column="nid" property="nid" jdbcType="INTEGER" />
     <result column="cid" property="cid" jdbcType="INTEGER" />
     <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -65,7 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    nid, cid, content
+    nid, cid, content, time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ha.pojos.NoticeExample" >
     select
@@ -98,10 +99,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.ha.pojos.Notice" >
-    insert into notice (nid, cid, content
-      )
-    values (#{nid,jdbcType=INTEGER}, #{cid,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}
-      )
+    insert into notice (nid, cid, content, 
+      time)
+    values (#{nid,jdbcType=INTEGER}, #{cid,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, 
+      #{time,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ha.pojos.Notice" >
     insert into notice
@@ -115,6 +116,9 @@
       <if test="content != null" >
         content,
       </if>
+      <if test="time != null" >
+        time,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="nid != null" >
@@ -125,6 +129,9 @@
       </if>
       <if test="content != null" >
         #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -146,6 +153,9 @@
       <if test="record.content != null" >
         content = #{record.content,jdbcType=VARCHAR},
       </if>
+      <if test="record.time != null" >
+        time = #{record.time,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -155,7 +165,8 @@
     update notice
     set nid = #{record.nid,jdbcType=INTEGER},
       cid = #{record.cid,jdbcType=INTEGER},
-      content = #{record.content,jdbcType=VARCHAR}
+      content = #{record.content,jdbcType=VARCHAR},
+      time = #{record.time,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -169,13 +180,17 @@
       <if test="content != null" >
         content = #{content,jdbcType=VARCHAR},
       </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=VARCHAR},
+      </if>
     </set>
     where nid = #{nid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.ha.pojos.Notice" >
     update notice
     set cid = #{cid,jdbcType=INTEGER},
-      content = #{content,jdbcType=VARCHAR}
+      content = #{content,jdbcType=VARCHAR},
+      time = #{time,jdbcType=VARCHAR}
     where nid = #{nid,jdbcType=INTEGER}
   </update>
 </mapper>

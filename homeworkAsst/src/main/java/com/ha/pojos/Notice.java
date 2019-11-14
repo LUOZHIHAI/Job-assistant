@@ -7,6 +7,8 @@ public class Notice {
 
     private String content;
 
+    private String time;
+
     public Integer getNid() {
         return nid;
     }
@@ -29,5 +31,13 @@ public class Notice {
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time == null ? null : time.trim();
     }
 }

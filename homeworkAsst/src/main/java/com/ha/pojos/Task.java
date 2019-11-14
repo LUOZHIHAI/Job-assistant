@@ -15,9 +15,23 @@ public class Task {
 
     private String time;
     
+    private String title;
+    
     private Map statistics;
+    
+    private byte perState;
 
-    public Map getStatistics() {
+    
+
+	public byte getPerState() {
+		return perState;
+	}
+
+	public void setPerState(byte perState) {
+		this.perState = perState;
+	}
+
+	public Map getStatistics() {
 		return statistics;
 	}
 
@@ -71,5 +85,13 @@ public class Task {
 
     public void setTime(String time) {
         this.time = time == null ? null : time.trim();
+    }
+    
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 }

@@ -16,4 +16,6 @@ public interface TaskService {
 	public List<Stuntask> findStuByTid(int tid);
 	
 	public Task getTaskByTid(int tid);
+	
+	public void setConn(int mid,List<Task> list);
 }

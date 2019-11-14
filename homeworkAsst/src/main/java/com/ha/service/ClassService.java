@@ -25,6 +25,8 @@ public interface ClassService {
 	
 	public List<Notice> findNotice(int cid);
 	
+	public void newNotice(Notice notice);
+	
 	public boolean isMaster(int cid, int mid);
 	
 	public void updateClassNotice(Notice notice);
@@ -34,4 +36,6 @@ public interface ClassService {
 	public void delClass(int cid);
 	
 	public void exitClass(int mid, int cid);
+	
+	public void updateClass(Myclass myclass);
 }

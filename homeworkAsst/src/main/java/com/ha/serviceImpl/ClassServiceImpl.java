@@ -20,6 +20,7 @@ import com.ha.pojos.StudentExample;
 import com.ha.pojos.StunclassExample;
 import com.ha.pojos.StunclassKey;
 import com.ha.pojos.StuntaskExample;
+import com.ha.pojos.Task;
 import com.ha.pojos.TaskExample;
 import com.ha.service.ClassService;
 
@@ -146,11 +147,26 @@ public class ClassServiceImpl implements ClassService {
 		StunclassExample.Criteria criteria1 = stunclassExample.createCriteria();
 		criteria1.andCidEqualTo(cid);
 		stunclassMapper.deleteByExample(stunclassExample);
+		
+		//删除作业、学生作业关联
+		TaskExample taskExample = new TaskExample();
+		TaskExample.Criteria criteria2 = taskExample.createCriteria();
+		criteria2.andCidEqualTo(cid);
+		List<Task> list = taskMapper.selectByExample(taskExample);
+		for(Task task : list) {
+			StuntaskExample sntExamle = new StuntaskExample();
+			StuntaskExample.Criteria sntCriteria = sntExamle.createCriteria();
+			sntCriteria.andTidEqualTo(task.getTid());
+			stuntaskMapper.deleteByExample(sntExamle);
+			taskMapper.deleteByPrimaryKey(task.getTid());
+		}
+		
 		//删除班级公告
 		NoticeExample noticeExample = new NoticeExample();
 		NoticeExample.Criteria criteria4 = noticeExample.createCriteria();
 		criteria4.andCidEqualTo(cid);
 		noticeMapper.deleteByExample(noticeExample);
+		
 		//删除班级
 		myclassMapper.deleteByPrimaryKey(cid);
 	}
@@ -162,6 +178,17 @@ public class ClassServiceImpl implements ClassService {
 		key.setCid(cid);
 		key.setMid(mid);
 		stunclassMapper.deleteByPrimaryKey(key);
+	}
+
+	@Override
+	public void newNotice(Notice notice) {
+		noticeMapper.insert(notice);
+	}
+
+	@Override
+	public void updateClass(Myclass myclass) {
+		myclassMapper.updateByPrimaryKey(myclass);
+		
 	}
 
 }
