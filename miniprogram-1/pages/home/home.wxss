@@ -1,0 +1,25 @@
+/* pages/home/home.wxss */
+.flex{
+  display: flex,block;
+  margin: 20rpx;
+  margin-left: 100rpx;
+  margin-right: 100rpx;
+  border: 1rpx solid rgba(0, 0, 0, 0.1);
+  font-size: 30;
+  background: #00cccc;
+}
+.flex1{
+  display: flex,block;
+  margin: 10rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  border: 1rpx solid rgba(0, 0, 0, 0.1);
+  font-size: 30;
+  background: #FFFFFF;
+}
+.twt{
+  text-align: center;
+}
+.pit{
+  margin: 100rpx;
+}

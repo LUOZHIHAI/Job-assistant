@@ -1,0 +1,13 @@
+<!--pages/home/home.wxml-->
+<view>
+  <view class="flex twt"><text>当前公告</text>
+    <view class="flex1 twt">
+      <view class="pit">
+        <text>3点前交作业</text>
+      </view>
+      <view class="pit">
+        <text>发布时间:</text>
+      </view>
+    </view>
+  </view>
+</view>

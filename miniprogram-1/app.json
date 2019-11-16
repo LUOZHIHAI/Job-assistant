@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/login/login",
-    "pages/index/index",
-    "pages/logs/logs"
+    
+    "pages/class/join",
+    "pages/home/home"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -10,5 +10,20 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "selectedColor": "#1296db",
+    "position":"top",
+    "list": [
+      {
+        "pagePath": "pages/class/join",
+        "text": "班级作业"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "班级公告"
+      }
+    ]
+  }
+
 }
