@@ -9,6 +9,7 @@
     <result column="remarks" property="remarks" jdbcType="VARCHAR" />
     <result column="time" property="time" jdbcType="VARCHAR" />
     <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="filepath" property="filepath" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -69,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    tid, cid, subject, content, remarks, time, title
+    tid, cid, subject, content, remarks, time, title, filepath
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ha.pojos.TaskExample" >
     select
@@ -104,10 +105,10 @@
   <insert id="insert" parameterType="com.ha.pojos.Task" >
     insert into task (tid, cid, subject, 
       content, remarks, time, 
-      title)
+      title, filepath)
     values (#{tid,jdbcType=INTEGER}, #{cid,jdbcType=INTEGER}, #{subject,jdbcType=VARCHAR}, 
       #{content,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR}, 
-      #{title,jdbcType=VARCHAR})
+      #{title,jdbcType=VARCHAR}, #{filepath,jdbcType=VARCHAR})
     <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="tid">
 		SELECT LAST_INSERT_ID() AS id
     </selectKey>
@@ -136,6 +137,9 @@
       <if test="title != null" >
         title,
       </if>
+      <if test="filepath != null" >
+        filepath,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="tid != null" >
@@ -158,6 +162,9 @@
       </if>
       <if test="title != null" >
         #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="filepath != null" >
+        #{filepath,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -191,6 +198,9 @@
       <if test="record.title != null" >
         title = #{record.title,jdbcType=VARCHAR},
       </if>
+      <if test="record.filepath != null" >
+        filepath = #{record.filepath,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -204,7 +214,8 @@
       content = #{record.content,jdbcType=VARCHAR},
       remarks = #{record.remarks,jdbcType=VARCHAR},
       time = #{record.time,jdbcType=VARCHAR},
-      title = #{record.title,jdbcType=VARCHAR}
+      title = #{record.title,jdbcType=VARCHAR},
+      filepath = #{record.filepath,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -230,6 +241,9 @@
       <if test="title != null" >
         title = #{title,jdbcType=VARCHAR},
       </if>
+      <if test="filepath != null" >
+        filepath = #{filepath,jdbcType=VARCHAR},
+      </if>
     </set>
     where tid = #{tid,jdbcType=INTEGER}
   </update>
@@ -240,7 +254,8 @@
       content = #{content,jdbcType=VARCHAR},
       remarks = #{remarks,jdbcType=VARCHAR},
       time = #{time,jdbcType=VARCHAR},
-      title = #{title,jdbcType=VARCHAR}
+      title = #{title,jdbcType=VARCHAR},
+      filepath = #{filepath,jdbcType=VARCHAR}
     where tid = #{tid,jdbcType=INTEGER}
   </update>
 </mapper>

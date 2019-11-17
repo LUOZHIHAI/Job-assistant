@@ -82,5 +82,23 @@ public class TaskServiceImpl implements TaskService{
 		
 	}
 
+	@Override
+	public void updateState(int tid, int mid) {
+		Stuntask snt = new Stuntask();
+		snt.setMid(mid);
+		snt.setTid(tid);
+		snt.setState(new Integer(1).byteValue());
+		stuntaskMapper.updateByPrimaryKey(snt);
+	}
+
+	@Override
+	public List<Stuntask> getStateByMid(int mid) {
+		StuntaskExample example = new StuntaskExample();
+		StuntaskExample.Criteria criteria = example.createCriteria();
+		criteria.andMidEqualTo(mid);
+		List<Stuntask> list = stuntaskMapper.selectByExample(example);
+		return list;
+	}
+
 	
 }

@@ -14,14 +14,12 @@ public class Task {
     private String remarks;
 
     private String time;
-    
+
     private String title;
-    
-    private Map statistics;
+
+    private String filepath;
     
     private byte perState;
-
-    
 
 	public byte getPerState() {
 		return perState;
@@ -31,15 +29,9 @@ public class Task {
 		this.perState = perState;
 	}
 
-	public Map getStatistics() {
-		return statistics;
-	}
+	
 
-	public void setStatistics(Map statistics) {
-		this.statistics = statistics;
-	}
-
-	public Integer getTid() {
+    public Integer getTid() {
         return tid;
     }
 
@@ -86,12 +78,20 @@ public class Task {
     public void setTime(String time) {
         this.time = time == null ? null : time.trim();
     }
-    
+
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
         this.title = title == null ? null : title.trim();
+    }
+
+    public String getFilepath() {
+        return filepath;
+    }
+
+    public void setFilepath(String filepath) {
+        this.filepath = filepath == null ? null : filepath.trim();
     }
 }

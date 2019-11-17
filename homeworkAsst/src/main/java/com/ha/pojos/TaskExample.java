@@ -573,6 +573,76 @@ public class TaskExample {
             addCriterion("title not between", value1, value2, "title");
             return (Criteria) this;
         }
+
+        public Criteria andFilepathIsNull() {
+            addCriterion("filepath is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFilepathIsNotNull() {
+            addCriterion("filepath is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFilepathEqualTo(String value) {
+            addCriterion("filepath =", value, "filepath");
+            return (Criteria) this;
+        }
+
+        public Criteria andFilepathNotEqualTo(String value) {
+            addCriterion("filepath <>", value, "filepath");
+            return (Criteria) this;
+        }
+
+        public Criteria andFilepathGreaterThan(String value) {
+            addCriterion("filepath >", value, "filepath");
+            return (Criteria) this;
+        }
+
+        public Criteria andFilepathGreaterThanOrEqualTo(String value) {
+            addCriterion("filepath >=", value, "filepath");
+            return (Criteria) this;
+        }
+
+        public Criteria andFilepathLessThan(String value) {
+            addCriterion("filepath <", value, "filepath");
+            return (Criteria) this;
+        }
+
+        public Criteria andFilepathLessThanOrEqualTo(String value) {
+            addCriterion("filepath <=", value, "filepath");
+            return (Criteria) this;
+        }
+
+        public Criteria andFilepathLike(String value) {
+            addCriterion("filepath like", value, "filepath");
+            return (Criteria) this;
+        }
+
+        public Criteria andFilepathNotLike(String value) {
+            addCriterion("filepath not like", value, "filepath");
+            return (Criteria) this;
+        }
+
+        public Criteria andFilepathIn(List<String> values) {
+            addCriterion("filepath in", values, "filepath");
+            return (Criteria) this;
+        }
+
+        public Criteria andFilepathNotIn(List<String> values) {
+            addCriterion("filepath not in", values, "filepath");
+            return (Criteria) this;
+        }
+
+        public Criteria andFilepathBetween(String value1, String value2) {
+            addCriterion("filepath between", value1, value2, "filepath");
+            return (Criteria) this;
+        }
+
+        public Criteria andFilepathNotBetween(String value1, String value2) {
+            addCriterion("filepath not between", value1, value2, "filepath");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

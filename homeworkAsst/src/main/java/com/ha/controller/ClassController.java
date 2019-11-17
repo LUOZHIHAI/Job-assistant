@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ha.pojos.Myclass;
@@ -32,7 +33,6 @@ public class ClassController {
 		if(myclass.getClassNum()!=null) {
 			classService.addClass(myclass);
 			classService.joinClass(myclass.getMaster(), myclass.getCid());
-			System.out.print(myclass.getCid());
 			Notice notice = new Notice();
 			notice.setCid(myclass.getCid());
 			notice.setTime("1970-01-01");
@@ -44,8 +44,8 @@ public class ClassController {
 	
 	@RequestMapping("/join")
 	@ResponseBody
-	public String joinClass(int classId,String secretKey,int mid) {  //加入班级
-		Myclass myclass = classService.findClassByCid(classId);
+	public String joinClass(int cid,String secretKey,int mid) {  //加入班级
+		Myclass myclass = classService.findClassByCid(cid);
 		if(myclass != null) {
 			if(secretKey.equals(myclass.getSecretKey())) {
 				classService.joinClass(mid, myclass.getCid());
@@ -60,7 +60,7 @@ public class ClassController {
 	public List getTaskAndNotice(int cid,int mid) {	//班级公告、作业
 		List<Notice> noticeList = classService.findNotice(cid);
 		List<Task> taskList = taskService.getTask(cid);
-		taskService.setConn(mid,taskList);
+		taskService.setConn(mid,taskList);			//设置个人所有作业的完成情况
 		List list = new ArrayList();
 		list.add(noticeList);
 		list.add(taskList);
@@ -82,7 +82,7 @@ public class ClassController {
 	
 	@RequestMapping("/getAllClass")
 	@ResponseBody
-	public List<Myclass> getAllClass(int mid){  //获取相关的所有班级
+	public List<Myclass> getAllClass(@RequestParam(value="mid") int mid){  //获取相关的所有班级
 		List<Myclass> list = new ArrayList<Myclass>();
 		List<StunclassKey>list1 = classService.findClassByMid(mid);
 		Myclass myclass;
@@ -121,10 +121,11 @@ public class ClassController {
 		return list;
 	}
 	
-	@RequestMapping("/updateClassName")
+	@RequestMapping("/updateClassKey")
 	@ResponseBody
-	public void updateName(int cid, String name) {
+	public void updateKey(int cid, String key) {
 		Myclass myclass = classService.findClassByCid(cid);
+		myclass.setSecretKey(key);
 		classService.updateClass(myclass);
 		
 	}

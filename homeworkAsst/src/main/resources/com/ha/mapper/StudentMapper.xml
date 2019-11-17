@@ -104,6 +104,9 @@
       name, cid)
     values (#{mid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{name,jdbcType=VARCHAR}, #{cid,jdbcType=INTEGER})
+    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="mid">
+		SELECT LAST_INSERT_ID() AS id
+    </selectKey> 
   </insert>
   <insert id="insertSelective" parameterType="com.ha.pojos.Student" >
     insert into student
