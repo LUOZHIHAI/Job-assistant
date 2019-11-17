@@ -1,0 +1,17 @@
+<form>
+	<view class="cu-form-group margin-top">
+		<view class="title">内容</view>
+		<input placeholder="请输入内容"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">发布时间</view>
+		<input placeholder="请输入时间"></input>
+	</view>
+
+</form>
+<view class="aa">
+<view style="display:flex;margin-top:30px;">
+  <button class="formbtn" style="width:40%;" formType="submit;" bindtap="orderMeeting">发布公告</button>
+</view>
+</view>
+

@@ -1,0 +1,5 @@
+<!--pages/succeed1/succeed1.wxml-->
+<text>创建成功！！！</text>
+<view class="b">
+<button type="default" style="width:40%;"  bindtap="backBtn">返回上一页</button>
+</view>

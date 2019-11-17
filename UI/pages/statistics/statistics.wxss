@@ -1,0 +1,11 @@
+.flex{
+  display: flex,block;
+  margin: 20rpx;
+  margin-left: 250rpx;
+  margin-right: 100rpx;
+  font-size: 30;
+  
+}
+.twt{
+  text-align: center;
+}

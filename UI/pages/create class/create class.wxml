@@ -1,0 +1,34 @@
+<form>
+	<view class="cu-form-group margin-top">
+		<view class="title">学校名称</view>
+		<input placeholder="请输入学校"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">所属学院</view>
+		<input placeholder="请输入学院"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">所属年级</view>
+		<input placeholder="请输入年级"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">所属专业</view>
+		<input placeholder="请输入专业"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">所属班级</view>
+		<input placeholder="请输入班级"></input>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">班级密钥</view>
+		<input placeholder="请输入班级密钥"></input>
+	</view>
+</form>
+
+
+
+<view class="bb">
+<view style="display:flex;margin-top:30px;">
+  <button class="formbtn" style="width:40%;" formType="submit;" bindtap="orderMeeting">创建班级</button>
+</view>
+</view>

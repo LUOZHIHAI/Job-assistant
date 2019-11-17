@@ -1,0 +1,13 @@
+<view class="cu-list menu-avatar">
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{4}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+      
+      <view class="content">
+        <view class="cuIcon-favorfill text-grey">软件工程三班</view> 
+      </view>
+     
+      <view class="move">
+        <view class="bg-green">更改</view>
+        <view class="bg-blue">删除</view>
+      </view>
+    </view>
+  </view>

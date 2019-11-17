@@ -1,0 +1,11 @@
+<view class="navbar">  
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>  
+</view>  
+
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius" wx:for="{{4}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" >
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/about/about" hover-class="none">
+        <text class="text-grey">作业标题：\n截止时间：\n&进行中</text>
+      </navigator>
+    </view>
+  </view>

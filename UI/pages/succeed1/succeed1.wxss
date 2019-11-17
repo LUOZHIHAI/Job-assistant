@@ -1,0 +1,8 @@
+/* pages/succeed1/succeed1.wxss */
+page{
+  background-color:#ccc
+}
+.b button{
+    background: #1AAD16;
+    color: #fff;
+}
