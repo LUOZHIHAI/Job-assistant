@@ -1,0 +1,13 @@
+<!--pages/class/join.wxml-->
+<view class="title">
+  <text>学委作业助手</text>
+</view>
+<view class="flex">
+  <text>班级名称</text>
+  <input></input>
+</view>
+<view class="flex">
+  <text>班级密钥:</text>
+  <input></input>
+</view>
+<button class="btn">加入班级</button>
