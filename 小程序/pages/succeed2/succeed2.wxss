@@ -1,0 +1,8 @@
+
+page{
+  background-color:#D1EEEE;
+  }
+.c button{
+  background: #1AAD16;
+  color: #fff;
+}

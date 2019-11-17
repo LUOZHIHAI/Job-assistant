@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/title/title",
+    "pages/succeed2/succeed2",
+    "pages/statistics1/statistics1",
+    "pages/statistics/statistics",
+    "pages/sign out/sign out",
+    "pages/join/join",
+    "pages/homepage/homepage",
+    "pages/gonggao/gonggao",
+    "pages/create class/create class",
+    "pages/announcement/announcement",
+    "pages/Homework/Homework",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/succeed/succeed",
+    "pages/succeed1/succeed1"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ccc",
+    "navigationBarTitleText": "Welcome",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#BFEFFF",
+    "enablePullDownRefresh": true
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#1AAD16",
+    "list": [
+      {
+        "pagePath": "pages/homepage/homepage",
+        "text": "首页",
+        "iconPath": "images/tabBar/tabBar1.png",
+        "selectedIconPath": "images/tabBar/tabBar1_selected.png"
+      },
+      {
+        "pagePath": "pages/Homework/Homework",
+        "text": "我的",
+        "iconPath": "images/tabBar/tabBar2.png",
+        "selectedIconPath": "images/tabBar/tabBar2_selected.png"
+      }
+    ]
+  }
+}

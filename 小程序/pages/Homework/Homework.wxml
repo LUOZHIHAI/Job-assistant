@@ -1,0 +1,35 @@
+<form>
+	<view class="cu-form-group margin-top">
+		<view class="title">所属课程</view>
+		<input placeholder="请输入课程名"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">所属班级</view>
+		<input placeholder="请输入班级名"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">作业标题</view>
+		<input placeholder="请输入作业标题"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">作业内容</view>
+		<input placeholder="请输入内容"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">备注</view>
+		<input placeholder="请输入内容"></input>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">截止时间</view>
+		<input placeholder="请输入截止时间"></input>
+	</view>
+
+  
+</form>
+
+<view class="aa">
+<view style="display:flex;margin-top:30px;">
+  <button type="default" class="submit-btn" style="width:30%;" formType="submit" bindtap="orderMeeting" >发布</button>
+</view>
+</view>
+

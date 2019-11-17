@@ -1,0 +1,19 @@
+<view class="navbar">  
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>  
+</view> 
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius" >
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/about/about" hover-class="none">
+        <text class="flex.twt">当前公告</text>
+        <view class="divLine"></view>
+        <text class="flex.twt">8点前收作业\n发布时间：</text>
+      </navigator>
+    </view>
+</view>
+
+  <view class="aa">
+<view style="display:flex;margin-top:30px;">
+  <button type="default" class="submit-btn" style="width:30%;" formType="submit" bindtap="orderMeeting" 
+  >编辑公告</button>
+</view>
+</view>

@@ -1,0 +1,5 @@
+<!--pages/succeed/succeed.wxml-->
+<text>发布成功！！！</text>
+<view class="a">
+<button type="default" style="width:40%;"  bindtap="backBtn">返回上一页</button>
+</view>
